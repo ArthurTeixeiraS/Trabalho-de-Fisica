@@ -1,0 +1,43 @@
+_____________________
+\                    \
+ \      P.A.R-T       \
+  \     presents...    \
+   \____________________\
+     _____________________
+    |                     |
+    |    Mine Tileset     |
+    |    Starter Pack     |
+    |_____________________|
+
+    Hello dear Game Creator!
+
+    First of all, thank you
+    for downloading our 
+    assets pack and we hope 
+    that it helps you create 
+    something truly unique 
+    and wonderful.
+
+    Please let us know any 
+    comments or feedback on 
+    our Itch.io page and 
+    also check out our 
+    other cool assets!
+
+    Made in:
+    ____________________
+   /                   /
+  /   Atomic Realm    /
+ /   Assets Factory  /
+/___________________/
+
+
+Itch.io: https://atomicrealm.itch.io
+Website: https://atomicrealm.com
+Twitter: https://twitter.com/atomic_realm
+
+
+Changelog:
+==========
+
+07-03-2022: Added 16p version so that smaller worlds do get a chance too.

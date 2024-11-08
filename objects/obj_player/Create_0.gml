@@ -2,12 +2,16 @@
 // Você pode escrever seu código neste editor
 velh		= 0;
 velv		= 0;
-vel			= 4;
+vel			= 2;
 gravidade	= .3;
 vel_jump	= 6.5;
+life = 3;
+spd = 4;
+isDamaged = false;
 
 inputs = {
 	left: ord("A"),
 	right: ord ("D"),
-	jump: vk_space
+	jump: vk_space,
+	attack: ord("J")
 }

@@ -1,7 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-
-velh		= 0;
-velv		= 0;
-vel			= 3;
-gravidade	= .3;
+if(!isDamaged){
+	life--;
+	alarm[0] =120;
+	isDamaged = true;
+}

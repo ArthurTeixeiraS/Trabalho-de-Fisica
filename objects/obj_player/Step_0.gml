@@ -42,7 +42,7 @@ if (cooldown_cinetica > 0) {
 }
 
 // Super salto com energia cinética (energia_tipo == 1)
-if (energia_tipo == 1 && keyboard_check_pressed(ord("J")) && _chao && cooldown_cinetica <= 0) {
+if (energia_tipo == 1 && keyboard_check_pressed(ord("L")) && _chao && cooldown_cinetica <= 0) {
     velv = -1.5 * vel_jump; // Aplica o dobro da força do pulo normal
     cooldown_cinetica = room_speed * 5; // Define o cooldown para o super pulo
     _chao = false; // Garante que o personagem não se detecte no chão logo após o super pulo
@@ -50,7 +50,7 @@ if (energia_tipo == 1 && keyboard_check_pressed(ord("J")) && _chao && cooldown_c
 }
 
 // Lógica do ataque Melee (para energia_tipo == 0)
-if (energia_tipo == 0 && keyboard_check_pressed(ord("J"))) {
+if (energia_tipo == 0 && keyboard_check_pressed(ord("L"))) {
     if (sprite_state == "attacking" && (_left || _right)) {
         sprite_state = "running";
         sprite_index = sprite_run;
@@ -102,29 +102,65 @@ if (energia_tipo == 2) {  // Energia Cinética (Ataque de Queda)
 
 // Invencibilidade temporária ao pressionar 'S' durante a queda com energia tipo 2
 if (energia_tipo == 2 && keyboard_check(ord("S"))) {
-    invincible = true; // Torna o jogador invencível enquanto segura 'S'
+    invincible = true;
 } else {
-    invincible = false; // Desativa invencibilidade se 'S' não estiver pressionado
+    invincible = false; 
 }
 
 if (energia_tipo == 3) {  // Energia Térmica Positiva (Calor)
-    if (keyboard_check_pressed(ord("J"))) {
-        // Criação do projetil `obj_fireBall`
+    if (keyboard_check_pressed(ord("L"))) {
         var fireball = instance_create_layer(x + (image_xscale * 16), y - 25, "Player", obj_fireBall);
         
-        // Define a direção e a velocidade do projetil com base no olhar do jogador
-        fireball.direction = image_xscale == 1 ? 0 : 180; // Para direita (0) ou esquerda (180)
-        fireball.speed = 8; // Velocidade do projetil
-        
-        // Ajusta o image_xscale da fireball para a direção do jogador
-        fireball.image_xscale = image_xscale; // A fireball segue a direção do jogador
+        fireball.direction = image_xscale == 1 ? 0 : 180; 
+        fireball.speed = 8; 
+
+        fireball.image_xscale = image_xscale;
+    }
+}
+
+if (energia_tipo == 4) {
+	if (keyboard_check_pressed(ord("L"))) {
+		var iceball = instance_create_layer(x + (image_xscale * 16), y - 35, "Player", obj_iceBall);
+		
+		iceball.direction = image_xscale == 1 ? 0 : 180; 
+        iceball.speed = 4; 
+
+        iceball.image_xscale = image_xscale;
+	}
+}
+
+if (energia_tipo == 5) {
+    if (keyboard_check_pressed(ord("L"))) {
+        // Criação e destruição da shockBall
+        if (shockBallInstance == undefined || shockBallInstance == noone) {
+            // Cria a shockBall se ela não existe
+            shockBallInstance = instance_create_layer(x + (image_xscale * 16), y - 35, "Player", obj_shockBall);
+            shockBallInstance.image_xscale = image_xscale;
+        } else {
+            // Destrói a shockBall existente
+            shockBallInstance.instance_destroy();
+            shockBallInstance = undefined;
+        }
+    }
+
+    // Atualiza a posição da shockBall se ela existir
+    if (shockBallInstance != undefined && shockBallInstance != noone) {
+        // Verifica se a direção do jogador mudou
+        if (shockBallInstance.image_xscale != image_xscale) {
+            shockBallInstance.instance_destroy(); // Destroi a shockBall se a direção mudar
+            shockBallInstance = undefined;
+        } else {
+            // Atualiza a posição para acompanhar o jogador
+            shockBallInstance.x = x + (image_xscale * 16);
+            shockBallInstance.y = y - 35;
+        }
     }
 }
 
 
 
 
-// Atualiza o estado de movimento normal (quando não está atacando)
+
 if (sprite_state != "attacking") {
     if (_chao) {
         velv = 0;
@@ -158,3 +194,4 @@ if (sprite_state != "attacking") {
         velv = 0;
     }
 }
+

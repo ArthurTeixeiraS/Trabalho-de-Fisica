@@ -9,6 +9,8 @@ vel_jump    = 7;
 energia_tipo = 0; // 0: Melee (nenhuma), 1: Cinética, 2: Gravitacional, 3: Térmica Positiva, 4: Térmica Negativa, 5: Elétrica
 energia_simbolos = [spr_melee, spr_cinetica, spr_gravitacional, spr_termica_pos, spr_termica_neg, spr_eletrica];
 cooldown_cinetica = 5;
+shockBallInstance = undefined;
+
 
 // Inicialização das variáveis para o ataque cinético
 fall_start_y = 0;           

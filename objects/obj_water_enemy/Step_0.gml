@@ -1,7 +1,17 @@
 // Verifica se está no chão
 var _chao = place_meeting(x, y + 1, obj_chao);
 
-if (_chao) {
+if (is_frozen) {
+    velh = 0;
+
+    frozen_timer--;
+
+    if (frozen_timer <= 0) {
+        is_frozen = false;
+        sprite_index = spr_water_enemy_idle; 
+    }
+} else {
+	if (_chao) {
     velv = 0;
 
     if (stunned_timer > 0) {
@@ -46,4 +56,5 @@ if (_chao) {
     if velh != 0 {
         image_xscale = sign(velh);
     }
+ }   
 }

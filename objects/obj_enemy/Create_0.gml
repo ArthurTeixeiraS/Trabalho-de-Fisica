@@ -3,6 +3,8 @@
 
 // Inherit the parent event
 event_inherited();
+is_frozen = false;      
+frozen_timer = 0;  
 
 vel = choose(1, -1);
 

@@ -29,4 +29,19 @@ if(_col){
 	velv = 0;
 }
 
+var _colIceBlock = instance_place(x+velh, y, obj_iceBlock);
+
+if (_colIceBlock) {
+	if(velh > 0){
+		x = _colIceBlock.bbox_left + (x - bbox_right);		
+	}
+	
+	if(velh < 0){
+		x = _colIceBlock.bbox_right + (x - bbox_left);
+	}
+	
+	velh = 0;     
+}
+
+
 y += velv;

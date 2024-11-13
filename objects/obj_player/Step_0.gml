@@ -131,32 +131,48 @@ if (energia_tipo == 4) {
 
 if (energia_tipo == 5) {
     if (keyboard_check_pressed(ord("L"))) {
-        // Criação e destruição da shockBall
-        if (shockBallInstance == undefined || shockBallInstance == noone) {
-            // Cria a shockBall se ela não existe
+        if (!instance_exists(shockBallInstance)) {
             shockBallInstance = instance_create_layer(x + (image_xscale * 16), y - 35, "Player", obj_shockBall);
             shockBallInstance.image_xscale = image_xscale;
         } else {
-            // Destrói a shockBall existente
-            shockBallInstance.instance_destroy();
+            with (shockBallInstance) {
+                instance_destroy();
+            }
             shockBallInstance = undefined;
         }
     }
 
-    // Atualiza a posição da shockBall se ela existir
-    if (shockBallInstance != undefined && shockBallInstance != noone) {
-        // Verifica se a direção do jogador mudou
+    if (instance_exists(shockBallInstance)) {
         if (shockBallInstance.image_xscale != image_xscale) {
-            shockBallInstance.instance_destroy(); // Destroi a shockBall se a direção mudar
+            with (shockBallInstance) {
+                instance_destroy();
+            }
             shockBallInstance = undefined;
         } else {
-            // Atualiza a posição para acompanhar o jogador
             shockBallInstance.x = x + (image_xscale * 16);
             shockBallInstance.y = y - 35;
         }
     }
 }
 
+
+
+
+if (!instance_exists(obj_enemy)) {
+    if (obj_door.visible == false) {
+        obj_door.visible = true;
+    }
+}
+
+
+if (place_meeting(x, y, obj_door)) {
+    var door = instance_place(x, y, obj_door);
+    if (door != noone && door.sprite_index == spr_door_opened) {
+        if (keyboard_check_pressed(ord("W"))) {
+            y -= 300;
+        }
+    }
+}
 
 
 

@@ -21,3 +21,15 @@ if (instance_place(x, y, obj_robot_enemy)) {
     }
     instance_destroy();  
 }
+
+if (instance_place(x, y, obj_door)) {
+    var door = instance_place(x, y, obj_door);
+    if (door != noone) {
+        door.sprite_index = spr_door_opening;
+        door.opening = true; 
+        with (door) {
+            alarm[0] = room_speed; 
+        }
+    }
+    instance_destroy();
+}

@@ -11,6 +11,7 @@ energia_simbolos = [spr_melee, spr_cinetica, spr_gravitacional, spr_termica_pos,
 cooldown_cinetica = 5;
 shockBallInstance = undefined;
 
+obj_door.visible = false;
 
 // Inicialização das variáveis para o ataque cinético
 fall_start_y = 0;           

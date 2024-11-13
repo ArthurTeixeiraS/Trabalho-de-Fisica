@@ -14,6 +14,10 @@ if (instance_place(x, y, obj_robot_enemy)) {
     speed = 6; 
 }
 
+if (instance_place(x, y, obj_fire_enemy)) {
+    instance_destroy();  
+}
+
 
 if (place_meeting(x, y, obj_iceBlock)) {
    

@@ -1,7 +1,9 @@
 {
   "$GMTileSet":"v1",
   "%Name":"tl_asset",
-  "autoTileSets":[],
+  "autoTileSets":[
+    {"$GMAutoTileSet":"","%Name":"tile_room","closed_edge":false,"name":"tile_room","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[1,20,18,19,5,12,23,6,4,22,14,8,7,10,11,0,],},
+  ],
   "macroPageTiles":{
     "SerialiseHeight":0,
     "SerialiseWidth":0,

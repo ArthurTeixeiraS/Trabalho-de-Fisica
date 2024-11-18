@@ -1,4 +1,5 @@
-// Verifica se está no chão
+event_inherited();
+
 var _chao = place_meeting(x, y + 1, obj_chao);
 
 if (is_frozen) {
@@ -19,10 +20,8 @@ if (is_frozen) {
         stunned_timer -= 1;
         velh = 0;
     } else {
-        // Controle de movimento
         willWalk();
 
-        // Ajusta a direção de movimento e o sprite de caminhada
         if (velh != 0) {
             sprite_index = spr_water_enemy_walk;
             image_xscale = sign(velh);
@@ -30,27 +29,23 @@ if (is_frozen) {
             sprite_index = spr_water_enemy_idle;
         }
 
-        // Verifica se há uma borda na plataforma à frente
         if (!place_meeting(x + 4 * sign(velh), y + 1, obj_chao)) {
-            velh *= -1;  // Inverte a direção ao detectar a borda
+            velh *= -1; 
         }
 
-        // Impede que o inimigo continue andando se houver uma parede à frente
         if (place_meeting(x + velh, y, obj_chao)) {
             velh *= -1;
         }
     }
 } else {
-    // Aplica gravidade quando o inimigo está no ar
     velv += gravidade;
 
-    // Aplica a repulsão (throwback)
     if (throwback_h != 0 || throwback_v != 0) {
         x += throwback_h;
         y += throwback_v;
         
-        throwback_h *= 0.9; // Diminui a velocidade horizontal
-        throwback_v += gravidade; // Adiciona gravidade ao efeito vertical
+        throwback_h *= 0.9; 
+        throwback_v += gravidade;
     }
     
     if velh != 0 {
@@ -58,3 +53,4 @@ if (is_frozen) {
     }
  }   
 }
+

@@ -1,4 +1,4 @@
-// Verifica se a bola de choque atingiu o inimigo de água
+
 if (instance_place(x, y, obj_water_enemy)) {
     var water_enemy = instance_place(x, y, obj_water_enemy);
     if (water_enemy != noone) { 
@@ -26,10 +26,11 @@ if (instance_place(x, y, obj_door)) {
     var door = instance_place(x, y, obj_door);
     if (door != noone) {
         door.sprite_index = spr_door_opening;
-        door.opening = true; 
+        door.opening = true;
         with (door) {
-            alarm[0] = room_speed; 
+            alarm[0] = 30; 
         }
     }
-    instance_destroy();
+    instance_destroy(); 
 }
+

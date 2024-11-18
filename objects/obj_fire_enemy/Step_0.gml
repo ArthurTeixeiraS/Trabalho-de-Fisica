@@ -1,3 +1,5 @@
+event_inherited();
+
 // Verifica se está no chão
 var _chao = place_meeting(x, y + 1, obj_chao);
 
@@ -47,4 +49,6 @@ if (_chao) {
         image_xscale = sign(velh);
     }
 }
+
+
 

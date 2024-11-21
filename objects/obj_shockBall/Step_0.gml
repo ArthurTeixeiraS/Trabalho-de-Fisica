@@ -4,6 +4,7 @@ if (instance_place(x, y, obj_water_enemy)) {
     if (water_enemy != noone) { 
         with (water_enemy){
 			sprite_index = spr_water_enemy_dead;  
+			audio_play_sound(a_enemyDeath, 1, false);
 			instance_destroy();  
 		}
     }
@@ -16,6 +17,7 @@ if (instance_place(x, y, obj_robot_enemy)) {
     if (robot_enemy != noone) {
 		with (robot_enemy){
 			sprite_index = spr_robot_enemy_dead;  
+			audio_play_sound(a_enemyDeath, 1, false);
 			instance_destroy();  
 		}
     }
@@ -27,6 +29,7 @@ if (instance_place(x, y, obj_door)) {
     if (door != noone) {
         door.sprite_index = spr_door_opening;
         door.opening = true;
+		audio_play_sound(a_shockInDoor, 1, false);
         with (door) {
             alarm[0] = 30; 
         }

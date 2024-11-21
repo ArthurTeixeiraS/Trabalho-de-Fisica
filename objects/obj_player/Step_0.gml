@@ -33,6 +33,13 @@ if (attack_lock_time <= 0) {
 
 if (keyboard_check_pressed(ord("K"))) {
     energia_tipo = (energia_tipo + 1) % array_length(energia_simbolos);
+	
+	if (energia_tipo != 5 && shockBallInstance != undefined) {
+        with (shockBallInstance) {
+            instance_destroy();
+        }
+        shockBallInstance = undefined;
+    }
 }
 
 if (cooldown_cinetica > 0) {
@@ -40,7 +47,8 @@ if (cooldown_cinetica > 0) {
 }
 
 if (energia_tipo == 1 && keyboard_check_pressed(ord("L")) && _chao && cooldown_cinetica <= 0) {
-    velv = -1.5 * vel_jump; 
+    velv = -1.5 * vel_jump;
+	audio_play_sound(a_hiJump, 1, false);
     cooldown_cinetica = room_speed * 5; 
     _chao = false; 
 }
@@ -92,6 +100,7 @@ if (energia_tipo == 2) {
 
             if (enemy_hit != noone) { 
                 instance_destroy(enemy_hit); 
+				audio_play_sound(a_enemyDeath, 1, false);
                 velv = -2; 
             }
         }
@@ -110,7 +119,7 @@ if (energia_tipo == 2 && keyboard_check(ord("S"))) {
 if (energia_tipo == 3) { 
     if (keyboard_check_pressed(ord("L"))) {
         var fireball = instance_create_layer(x + (image_xscale * 16), y - 25, "Player", obj_fireBall);
-        
+        audio_play_sound(a_fireball, 1, false)
         fireball.direction = image_xscale == 1 ? 0 : 180; 
         fireball.speed = 8; 
 
@@ -121,7 +130,7 @@ if (energia_tipo == 3) {
 if (energia_tipo == 4) {
 	if (keyboard_check_pressed(ord("L"))) {
 		var iceball = instance_create_layer(x + (image_xscale * 16), y - 35, "Player", obj_iceBall);
-		
+		audio_play_sound(a_iceCube, 1, false)
 		iceball.direction = image_xscale == 1 ? 0 : 180; 
         iceball.speed = 4; 
 
@@ -133,7 +142,8 @@ if (energia_tipo == 5) {
     if (keyboard_check_pressed(ord("L"))) {
         if (!instance_exists(shockBallInstance)) {
             shockBallInstance = instance_create_layer(x + (image_xscale * 16), y - 35, "Player", obj_shockBall);
-            shockBallInstance.image_xscale = image_xscale;
+			audio_play_sound(a_ShockBall, 1, false)
+			shockBallInstance.image_xscale = image_xscale;
         } else {
             with (shockBallInstance) {
                 instance_destroy();
@@ -183,6 +193,7 @@ if (sprite_state != "attacking") {
             velv = -vel_jump;
             sprite_state = "jumping";
             sprite_index = sprite_jump;
+			audio_play_sound(a_jump, 1, false)
         } else if (velh != 0) {
             sprite_state = "running";
             sprite_index = sprite_run;

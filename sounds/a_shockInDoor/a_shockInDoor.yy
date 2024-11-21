@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"a_lifeUp",
+  "%Name":"a_shockInDoor",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.402018,
-  "name":"a_lifeUp",
+  "duration":0.626372,
+  "name":"a_shockInDoor",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"a_lifeUp.wav",
+  "soundFile":"a_shockInDoor.wav",
   "type":0,
   "volume":1.0,
 }

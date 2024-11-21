@@ -27,6 +27,7 @@ if (place_meeting(x, y, obj_iceBlock)) {
         
         with (ice_block) {
             hit_count += 1;
+			audio_play_sound(a_IceBlockBreaking, 1, false)
 
             if (hit_count >= 5) {
                 instance_destroy(); 

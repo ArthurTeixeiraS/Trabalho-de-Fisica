@@ -9,8 +9,8 @@
   "name":"obj_flag",
   "overriddenProperties":[],
   "parent":{
-    "name":"Level",
-    "path":"folders/Objects/Level.yy",
+    "name":"Flags",
+    "path":"folders/Objects/Flags.yy",
   },
   "parentObjectId":null,
   "persistent":false,

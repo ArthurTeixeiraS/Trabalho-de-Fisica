@@ -1,19 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"obj_dialog",
+  "%Name":"obj_flagIceBlock",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_dialog",
+  "name":"obj_flagIceBlock",
   "overriddenProperties":[],
   "parent":{
     "name":"Flags",
     "path":"folders/Objects/Flags.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_flag",
+    "path":"objects/obj_flag/obj_flag.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,7 +32,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_flag",
+    "path":"sprites/spr_flag/spr_flag.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

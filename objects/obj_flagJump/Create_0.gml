@@ -1,4 +1,4 @@
 event_inherited();
 
-texto = ["Use a energia cinética para acumular energia cinética para realizar \n super saltos e alcançar lugares inacessíveis!"];
+texto = ["Use a energia cinética para acumular energia e realizar \n super saltos e alcançar lugares inacessíveis!"];
 
